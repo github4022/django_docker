@@ -1,0 +1,23 @@
+version: '3'
+services:
+  application:
+    # If you have not built the image from Dockerfile.
+    # build: .
+    # image: django-docker
+
+    # Build image beforehand so we are using image directly.
+    image: django-docker
+
+    # To make the container stateful, volumes are use.
+    volumes:
+      - .:/app
+
+    # To map host port and container port.
+    ports:
+      - 8000:8000
+
+    # To give name to container.
+    container_name: django-docker-compose
+
+    # If you have not specified the CMD/ENTRYPOINT in Dockerfile.
+    # command: python manage.py runserver 0.0.0.0:8000
